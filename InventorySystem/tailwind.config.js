@@ -9,7 +9,11 @@ export default {
     './resources/views/**/*.blade.php',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-blue': '#0F3460',
+      }
+    },
   },
   plugins: [],
 }

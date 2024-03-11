@@ -1,0 +1,61 @@
+body {
+    font-family: 'Inder', sans-serif;
+}
+
+.gb-red {
+    background-color: #BD0221;
+}
+
+.gb-lblue {
+    background-color: #0F3460;
+}
+
+.gb-black {
+    background-color: #1A1A2E;
+}
+
+.gb-blue {
+    background-color: #000B22;
+}
+
+.gb-white {
+    background-color: #FAFAFA;
+}
+
+.gb-white-text {
+    color: #FAFAFA;
+}
+
+.hidden {
+    display: none;
+}
+
+.hover-effect {
+    transition: transform 0.3s ease-in-out;
+}
+
+.hover-effect:hover {
+    transform: scale(1.05) !important;
+}
+
+
+
+
+
+
+/* 
+.shadow-green {
+    box-shadow: -15px 20px 0px 0 #789461;
+}
+
+.shadow-green-reverse {
+    box-shadow: 20px 15px 0px 0 #789461;
+}
+
+.shadow-lgreen {
+    box-shadow: 20px 15px 0px 0 #DBE7C9;
+} */
+
+.text-danger {
+    color: #FF0000;
+}
