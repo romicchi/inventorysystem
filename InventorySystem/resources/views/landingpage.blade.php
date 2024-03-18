@@ -90,19 +90,21 @@
         </ul>
         </div>
         <div class="flex justify-center items-center pt-6">
+          <a href="/register">
             <button class="px-10 py-4 gb-black text-white transform transition duration-500 hover:scale-105">Free Trial</button>
+          </a>
         </div>
       </div>
       
       <div class="w-full md:w-1/2 bg-white rounded-md shadow-md p-4 text-center">
         <div class="gb-black text-white p-4 rounded-md w-3/4 mx-auto mt-0">
             <h2 class="text-xl font-bold mb-4">Standard</h2>
-            <p class="mb-4">Available Nationwide</p>
-            <p class="text-2xl font-bold mb-4">$19.99</p>
+            <p class="mb-4">Available on selected Regions only</p>
+            <p class="text-2xl font-bold mb-4">$29.99</p>
         </div>
         <div class="ml-10 pt-10">
     <div class="list-disc pl-4 mb-4 mx-auto text-left">
-        <p>For individual use, Keep track of inventory list</p>
+        <p>Stay Organized and Efficient with Our Inventory Tracking Solutions</p>
     </div>
         <ul class="space-y-4 mx-auto text-left">
         <li class="flex items-center">
@@ -111,7 +113,7 @@
                 <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
               </svg>
               <p class="ml-4">
-              Keep Track of Inventory Items
+              Standard & Advanced Features
               </p>
             </li>
             <li class="flex items-center">
@@ -120,7 +122,7 @@
                 <path d="m8 13 2.165 2.165a1 1 0 0 0 1.521-.126L16 9" fill="none" />
               </svg>
               <p class="ml-4">
-              Generate Reports
+              Document processing & submissions done by Us!
               </p>
             </li>
             <li class="flex items-center">
@@ -135,7 +137,9 @@
         </ul>
         </div>
         <div class="flex justify-center items-center pt-6">
-          <button class="px-10 py-4 gb-black text-white transform transition duration-500 hover:scale-105">Free Trial</button>
+          <a href="/register">
+            <button class="px-10 py-4 gb-black text-white transform transition duration-500 hover:scale-105">Free Trial</button>
+          </a>
         </div>
       </div>
     </div>

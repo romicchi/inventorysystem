@@ -26,6 +26,18 @@ body {
     color: #FAFAFA;
 }
 
+.card-red {
+    background-color: FC8787;
+}
+
+.card-yellow {
+    background-color: FCE987;
+}
+
+.card-blue {
+    background-color: 87B6FC;
+}
+
 .hidden {
     display: none;
 }

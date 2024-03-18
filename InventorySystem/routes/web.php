@@ -25,6 +25,11 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/admin', function () {
+// --------- ADMIN ---------- //
+Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
+});
+
+Route::get('/admin/clients', function () {
+    return view('admin.clients');
 });

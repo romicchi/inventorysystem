@@ -1,6 +1,6 @@
 
 
-<nav class="fixed top-0 z-50 w-full gb-red border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<nav class="fixed top-0 z-50 w-full gb-red dark:bg-gray-800">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
       <div class="flex items-center justify-start rtl:justify-end p-0 lg:p-1">
@@ -11,7 +11,7 @@
             </svg>
          </button>
          <h1>
-             <a href="/" class="text-1xl gb-white-text lg:text-2xl font-bold flex-1">HMP Co. Inventory Management System</a>
+             <a href="/" class="text-sm gb-white-text lg:text-2xl font-bold flex-1">HMP Co. Inventory Management System</a>
          </h1>
       </div>
       <div class="flex items-center">
@@ -40,13 +40,13 @@
    <div class="h-full px-3 pb-4 overflow-y-auto gb-lblue dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
          <li>
-            <a href="#" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="/admin/dashboard" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <i class="fas fa-tachometer-alt gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
                <span class="ms-3">Dashboard</span>
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="/admin/clients" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <i class="fas fa-users gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
                <span class="flex-1 ms-3 whitespace-nowrap">Clients</span>
             </a>
@@ -70,9 +70,3 @@
         </div>
    </div>
 </aside>
-
-<div class="p-4 sm:ml-64">
-   <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-      
-   </div>
-</div>
