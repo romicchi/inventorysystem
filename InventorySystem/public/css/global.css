@@ -18,6 +18,10 @@ body {
     background-color: #000B22;
 }
 
+.aside-bg-blue {
+    background-color: #16213E;
+}
+
 .gb-white {
     background-color: #FAFAFA;
 }
@@ -48,6 +52,29 @@ body {
 
 .hover-effect:hover {
     transform: scale(1.05) !important;
+}
+
+/* Tables */
+.table {
+    background-color: #fff;
+}
+
+.table th {
+    background-color: #fff;
+    color: #000B22;
+}
+
+/* livewire powergrid pagination buttons color black */
+.bi bi-chevron-double-right {
+    color: #000B22;
+}
+
+.bi bi-chevron-double-left {
+    background-color: #000B22;
+}
+
+.svg {
+
 }
 
 

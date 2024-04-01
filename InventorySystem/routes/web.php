@@ -33,3 +33,8 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/clients', function () {
     return view('admin.clients');
 });
+
+Route::get('/admin/logs', function () {
+    return view('admin.activity_logs');
+});
+

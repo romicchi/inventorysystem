@@ -36,8 +36,8 @@
   </div>
 </nav>
 
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full gb-lblue border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-   <div class="h-full px-3 pb-4 overflow-y-auto gb-lblue dark:bg-gray-800">
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full aside-bg-blue border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+   <div class="h-full px-3 pb-4 overflow-y-auto aside-bg-blue dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
          <li>
             <a href="/admin/dashboard" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -58,13 +58,13 @@
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="/admin/logs" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <i class="fas fa-clipboard-list gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
                <span class="flex-1 ms-3 whitespace-nowrap">Logs</span>
             </a>
          </li>
       </ul>
-        <div class="absolute bottom-0 left-0 w-full gb-lblue text-center text-gray-100 p-4 border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div class="absolute bottom-0 left-0 w-full aside-bg-blue text-center text-gray-100 p-4 border-gray-200 dark:bg-gray-800 dark:border-gray-700">
           <p class="text-md lg:text-xl">{{ date('h:i A') }}</p>
           <p class="text-sm">{{ date('M d, Y') }}</p>    
         </div>
