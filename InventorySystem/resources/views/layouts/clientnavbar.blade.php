@@ -40,21 +40,21 @@
    <div class="h-full px-3 pb-4 overflow-y-auto aside-bg-blue dark:bg-gray-800">
       <ul class="space-y-2 font-medium">
          <li>
-            <a href="/admin/dashboard" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="/dashboard" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <i class="fas fa-tachometer-alt gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
                <span class="ms-3">Dashboard</span>
             </a>
          </li>
          <li>
-            <a href="/admin/clients" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="/inventory" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
                <i class="fas fa-users gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
-               <span class="flex-1 ms-3 whitespace-nowrap">Clients</span>
+               <span class="flex-1 ms-3 whitespace-nowrap">Inventory</span>
             </a>
          </li>
          <li>
-            <a href="/admin/logs" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <i class="fas fa-clipboard-list gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
-               <span class="flex-1 ms-3 whitespace-nowrap">Logs</span>
+            <a href="/document" class="flex items-center p-2 gb-white-text rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <i class="fas fa-chart-line gb-white-text transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"></i>
+               <span class="flex-1 ms-3 whitespace-nowrap">Document</span>
             </a>
          </li>
       </ul>

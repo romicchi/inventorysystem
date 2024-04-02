@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\ActivityLog;
+use App\Models\Document;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use PowerComponents\LivewirePowerGrid\Button;
@@ -17,7 +17,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 use Illuminate\Support\Facades\Log;
 
-final class ActivityLogs extends PowerGridComponent
+final class DocumentTable extends PowerGridComponent
 {
     use WithExport;
 
@@ -38,7 +38,7 @@ final class ActivityLogs extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return ActivityLog::query();
+        return Document::query();
     }
 
     public function relationSearch(): array
@@ -49,10 +49,14 @@ final class ActivityLogs extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
+            ->add('id')
             ->add('name')
-            ->add('email')
-            ->add('company')
-            ->add('activity')
+            ->add('product_id')
+            ->add('additional_notes')
+            ->add('date_submitted', function ($row) {
+                return Carbon::parse($row->date_submitted)->format('M. d, Y');
+            })
+            ->add('file')
             ->add('created_at');
     }
 
@@ -63,19 +67,16 @@ final class ActivityLogs extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Email', 'email')
+            Column::make('Associated Product', 'product_id'),
+            Column::make('Additional notes', 'additional_notes')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Company', 'company')
+            Column::make('Date submitted', 'date_submitted')
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Activity', 'activity')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Created at', 'created_at')
+            Column::make('File', 'file')
                 ->sortable()
                 ->searchable(),
 
@@ -100,10 +101,10 @@ final class ActivityLogs extends PowerGridComponent
     {
         Log::info("Delete method called with ID: $rowId");
     
-        $activityLog = ActivityLog::find($rowId);
+        $document = Document::find($rowId);
     
-        if ($activityLog) {
-            $activityLog->delete();
+        if ($document) {
+            $document->delete();
         } else {
             Log::info("ActivityLog with ID: $rowId not found");
         }
@@ -111,22 +112,21 @@ final class ActivityLogs extends PowerGridComponent
         $this->dispatch('refresh');
     }
 
-    public function actions(ActivityLog $row): array
+    public function actions(Document $row): array
     {
         return [
             // Button::add('edit')
             //     ->slot('Edit: '.$row->id)
             //     ->id()
             //     ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-            //     ->dispatch('edit', ['rowId' => $row->id]),
-                
+            //     ->dispatch('edit', ['rowId' => $row->id])
+
             Button::add('delete')
-                ->slot('Delete')
-                ->class('bg-red-500 rounded-md cursor-pointer text-white px-3 py-2 m-1 text-sm')
-                ->dispatch('showDeleteConfirmation', ['rowId' => $row->id]),
+            ->slot('Delete')
+            ->class('bg-red-500 rounded-md cursor-pointer text-white px-3 py-2 m-1 text-sm')
+            ->dispatch('showDeleteConfirmation', ['rowId' => $row->id]),
         ];
     }
-    
 
     /*
     public function actionRules($row): array
@@ -139,6 +139,4 @@ final class ActivityLogs extends PowerGridComponent
         ];
     }
     */
-
-    
 }

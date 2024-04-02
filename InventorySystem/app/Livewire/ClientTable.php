@@ -58,7 +58,6 @@ final class ClientTable extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
-            ->add('id')
             ->add('company')
             ->add('contact_name')
             ->add('phone')
@@ -70,13 +69,12 @@ final class ClientTable extends PowerGridComponent
             ->add('rdo_code')
             ->add('report_status')
             ->add('duration')
-            ->add('created_at');
+            ->add('created_at_formatted', fn (Client $model) => Carbon::parse($model->created_at)->format('M. d, Y'));
     }
 
     public function columns(): array
     {
         return [
-            Column::make('Id', 'id'),
             Column::make('Company', 'company')
                 ->sortable()
                 ->searchable(),
@@ -118,7 +116,7 @@ final class ClientTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Created at', 'created_at')
+            Column::make('Created at', 'created_at_formatted', 'created_at')
                 ->sortable()
                 ->searchable(),
 
@@ -158,11 +156,17 @@ final class ClientTable extends PowerGridComponent
     public function actions(Client $row): array
     {
         return [
-            Button::add('edit')
-                ->slot('Edit')
-                ->id()
-                ->class('pg-btn-white justify-center dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                // ->route(route('clients.edit', $row->id)),
+            // Button::add('edit')
+            //     ->slot('Edit')
+            //     ->id()
+            //     ->class('pg-btn-white justify-center dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
+            //     // ->route(route('clients.edit', $row->id))
+            //     ,
+
+            Button::add('delete')
+            ->slot('Delete')
+            ->class('bg-red-500 rounded-md cursor-pointer text-white px-3 py-2 m-1 text-sm')
+            ->dispatch('showDeleteConfirmation', ['rowId' => $row->id]),
         ];
     }
 

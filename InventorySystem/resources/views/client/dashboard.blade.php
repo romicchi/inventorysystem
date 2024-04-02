@@ -1,4 +1,4 @@
-@include('layouts.navbar')
+@include('layouts.clientnavbar')
 @include('layouts.headlinks')
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="flex flex-col items-center justify-center w-2/3 ml-auto">
                     <div class="text-2xl text-gray-400 dark:text-gray-500">
-                        {{ $totalClients }}
+                        1
                     </div>
                     <p class="text-2xl text-gray-400 dark:text-gray-500">Client</p>
                 </div>

@@ -1,4 +1,4 @@
-@include('layouts.navbar')
+@include('layouts.clientnavbar')
 @include('layouts.headlinks')
 
 <!DOCTYPE html>
@@ -6,15 +6,20 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>HMP Co. Inventory Management System</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
 </head>
 <body>
     <div class="p-4 sm:ml-64">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-            <livewire:activity-logs/>
+        <div class="p-4 mt-14">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Document Management</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400">Manage your documents here</p>
+        </div>
+    </div>
+    <div class="p-4 sm:ml-64">
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+            <livewire:document-table/>
         </div>
     </div>
 
