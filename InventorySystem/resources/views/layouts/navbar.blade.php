@@ -26,9 +26,13 @@
                 </a>
             </div>
             <div class="mx-2">
-                <a href="#" class="text-sm font-medium gb-white-text dark:text-gray-300 hover:text-gray-700 dark:hover:text-white">
-                    <i class="fas fa-sign-out-alt"></i>
-                </a>
+               <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="text-sm font-medium gb-white-text dark:text-gray-300 hover:text-gray-700 dark:hover:text-white">
+                  <i class="fas fa-sign-out-alt"></i>
+               </a>
+
+               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+               </form>
             </div>
           </div>
         </div>

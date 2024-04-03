@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Client extends Authenticatable
+class Admin extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -16,17 +16,9 @@ class Client extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'company',
-        'contact_name',
-        'phone',
+        'name',
         'email',
         'password',
-        'address',
-        'tin',
-        'vn',
-        'rdo_code',
-        'report_status_id',
-        'duration',
     ];
 
     /**
@@ -40,10 +32,11 @@ class Client extends Authenticatable
     ];
 
     /**
-     * Get the report status associated with the client.
+     * The attributes that should be cast to native types.
+     *
+     * @var array
      */
-    public function reportStatus()
-    {
-        return $this->belongsTo(ReportStatus::class);
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

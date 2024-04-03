@@ -15,7 +15,7 @@
         <div class="w-full lg:max-w-6xl gb-lblue rounded-lg shadow-lg p-4 md:p-8 lg:p-16 flex flex-col-reverse md:flex-row justify-between space-y-10 md:space-y-0 md:space-x-10">
             <div class="w-full">
                 <h2 class="text-sm sm:text-base lg:text-lg font-bold gb-white-text">Sign In</h2>
-                <form action="" method="POST" class="mt-8 space-y-6">
+                <form action="{{ route('login.post') }}" method="POST" class="mt-8 space-y-6">
                     @csrf
                     <div>
                         <label for="email" class="block text-sm sm:text-base lg:text-lg font-medium gb-white-text">Email</label>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
-                            <input type="checkbox" id="remember-me" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <input type="checkbox" name="remember" id="remember-me" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <label for="remember-me" class="ml-2 block text-sm sm:text-base lg:text-lg gb-white-text">Remember me</label>
                         </div>
                         <div class="flex-shrink-0 text-sm sm:text-base lg:text-lg">

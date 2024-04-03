@@ -9,9 +9,22 @@
             </button>
             <nav id="menu" class="w-full md:w-auto md:block">
                 <ul class="flex flex-col md:flex-row md:space-x-8 text-center">
-                    <li><a href="#aboutus-container" class="text-white">About Us</a></li>
-                    <li><a href="#pricing-container" class="text-white">Pricing</a></li>
-                    <li><a href="/login" class="text-white">Login</a></li>
+                    @if(!Route::is('login') && !Route::is('register'))
+                        <li><a href="#aboutus-container" class="text-white">About Us</a></li>
+                        <li><a href="#pricing-container" class="text-white">Pricing</a></li>
+                    @endif
+
+                    @if(Auth::guard('admin')->check())
+                        <li><a href="{{ route('admin.dashboard') }}" class="text-white">Home</a></li>
+                    @elseif(Auth::guard('client')->check())
+                        <li><a href="{{ route('client.dashboard') }}" class="text-white">Home</a></li>
+                    @elseif(Route::is('landingpage'))
+                        <li><a href="/login" class="text-white">Login</a></li>
+                    @elseif(Route::is('register'))
+                        <li><a href="/login" class="text-white">Login</a></li>
+                    @else
+                        <li><a href="{{ route('register') }}" class="text-white">Register</a></li>
+                    @endif      
                 </ul>
             </nav>
         </div>

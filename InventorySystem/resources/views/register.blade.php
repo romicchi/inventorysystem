@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div class="flex flex-col items-center justify-center mx-4 mt-8 sm:mx-0 lg:mt-16">
+        <div class="flex flex-col items-center justify-center my-8 mx-4 mt-8 sm:mx-0 lg:mt-16">
             <div class="w-full lg:max-w-6xl gb-lblue rounded-lg shadow-lg p-4 md:p-8 lg:p-16 flex flex-col justify-between space-y-10 md:space-y-0 md:space-x-10">
                 <div class="self-center w-32 md:w-48 lg:w-64 mb-0 lg:mb-8">
                     <img src="{{ asset('assets/img/login-logo.png') }}" alt="HMP Co. Inventory Management System" class="w-full h-auto">

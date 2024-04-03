@@ -169,9 +169,9 @@
                 <p>+00-1234567890</p>
             </div>
         </div>
-        <div class="text-center mt-6 flex justify-center items-center">
-          <p class="flex-grow text-center">Copyright &copy; 2024 by HMP Co. All rights reserved.</p>
-          <img src="{{ asset('assets/img/landing-footer-logo.png') }}" alt="HMP Co. Logo" class="w-60 h-35 ml-2">
+        <div class="text-center mt-6 flex flex-col sm:flex-row justify-center items-center">
+            <img src="{{ asset('assets/img/landing-footer-logo.png') }}" alt="HMP Co. Logo" class="w-60 h-35 ml-2 sm:order-last">
+            <p class="flex-grow pt-12 text-center sm:order-first">Copyright &copy; 2024 by HMP Co. All rights reserved.</p>
         </div>
     </footer>
 
