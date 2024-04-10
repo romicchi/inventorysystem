@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ClientLoginController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,10 @@ Route::middleware(['client'])->group(function () {
     Route::get('/document', function () {
         return view('client.document');
     });
+
+    Route::get('/inventory/new', [StoreController::class, 'create'])->name('inventory.create');
+    Route::post('/inventory/new', [StoreController::class, 'store'])->name('inventory.store');
+
 
     Route::get('/logs', function () {
         return view('client.activity_logs');

@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('document_type_id');
             $table->text('additional_notes')->nullable();
             $table->timestamp('date_submitted')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('inventories');
+            $table->foreign('document_type_id')->references('id')->on('document_types');
         });
     }
 

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Document;
 use App\Models\Inventory;
+use App\Models\DocumentType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DocumentFactory extends Factory
@@ -25,6 +26,7 @@ class DocumentFactory extends Factory
         return [
             'name' => $this->faker->word,
             'product_id' => Inventory::all()->random()->id,
+            'document_type_id' => DocumentType::all()->random()->id,
             'additional_notes' => $this->faker->sentence,
             'date_submitted' => $this->faker->date(),
             'file' => $this->faker->word . '.pdf',

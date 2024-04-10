@@ -57,7 +57,9 @@ final class InventoryTable extends PowerGridComponent
             ->add('price')
             ->add('quantity')
             ->add('total')
-            ->add('image')
+            ->add('image', function ($model) {
+                return "<img class='imageModalOpener hover-cursor' src='/images/{$model->image}' width='50' height='50'>";
+            })
             ->add('date_purchase_formatted', fn (Inventory $model) => Carbon::parse($model->date_purchase)->format('M. d, Y'));
     }
 
@@ -119,11 +121,16 @@ final class InventoryTable extends PowerGridComponent
         Log::info("Delete method called with ID: $rowId");
     
         $inventory = Inventory::find($rowId);
-    
+
         if ($inventory) {
+            $imagePath = public_path('images/' . $inventory->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
             $inventory->delete();
         } else {
-            Log::info("ActivityLog with ID: $rowId not found");
+            Log::info("Inventory with ID: $rowId not found");
         }
     
         $this->dispatch('refresh');

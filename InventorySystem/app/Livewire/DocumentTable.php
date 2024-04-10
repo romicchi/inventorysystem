@@ -38,7 +38,11 @@ final class DocumentTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Document::query();
+        return Document::query()
+            ->join('document_types', 'documents.document_type_id', '=', 'document_types.id')
+            ->join('inventories', 'documents.product_id', '=', 'inventories.id')
+            ->select(['documents.*', 'document_types.type as document_type', 'inventories.name as product_name'])
+            ->select('documents.*', 'document_types.type as document_type', 'inventories.name as product_name');
     }
 
     public function relationSearch(): array
@@ -52,6 +56,7 @@ final class DocumentTable extends PowerGridComponent
             ->add('id')
             ->add('name')
             ->add('product_id')
+            ->add('document_type_id')
             ->add('additional_notes')
             ->add('date_submitted', function ($row) {
                 return Carbon::parse($row->date_submitted)->format('M. d, Y');
@@ -67,7 +72,8 @@ final class DocumentTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Associated Product', 'product_id'),
+            Column::make('Associated Product', 'product_name'),
+            Column::make('Type', 'document_type'),
             Column::make('Additional notes', 'additional_notes')
                 ->sortable()
                 ->searchable(),
@@ -102,11 +108,16 @@ final class DocumentTable extends PowerGridComponent
         Log::info("Delete method called with ID: $rowId");
     
         $document = Document::find($rowId);
-    
+
         if ($document) {
+            $filePath = public_path('files/' . $document->file);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
             $document->delete();
         } else {
-            Log::info("ActivityLog with ID: $rowId not found");
+            Log::info("Document with ID: $rowId not found");
         }
     
         $this->dispatch('refresh');
