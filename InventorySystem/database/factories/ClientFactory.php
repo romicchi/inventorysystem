@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Client;
+use App\Models\BusinessType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -32,6 +33,8 @@ class ClientFactory extends Factory
             'tin' => $this->faker->randomNumber(9),
             'vn' => $this->faker->randomNumber(9),
             'rdo_code' => $this->faker->randomNumber(3),
+            'business_type_id' => BusinessType::all()->random()->id,
+            'socials' => json_encode([$this->faker->url, $this->faker->url, $this->faker->url]),            
             'report_status_id' => 1, // Default to 1, you may want to change this
             'duration' => $this->faker->randomNumber(2),
         ];

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin;
 use App\Models\Client;
+use App\Models\BusinessType;
 
 class AuthController extends Controller
 {
@@ -36,6 +37,54 @@ class AuthController extends Controller
 
         // If unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email', 'remember'));
+    }
+
+    public function showRegisterForm()
+    {
+        $businessTypes = BusinessType::all();
+
+        return view('register', ['businessTypes' => $businessTypes]);
+    }
+    
+    public function register(Request $request)
+    {
+        // Validate the form data
+        $this->validate($request, [
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|string|email|max:255|unique:clients',
+            'password' => 'required|string|min:6|confirmed',
+            'company_name' => 'required|string|max:255',
+            'contact' =>  ['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:10'],
+            'address' => 'required|string|max:255',
+            'tin' => 'required|string|max:255',
+            'rdo' => 'required|string|max:255',
+            'vn' => 'required|string|max:255',
+            'business_type' => 'required|string|max:255',
+            'socials' => 'required|string|max:255',
+        ]);
+    
+        // Create a new client
+        $client = new Client;
+        $client->contact_name = $request->name;
+        $client->email = $request->email;
+        $client->password = bcrypt($request->password);
+        $client->company = $request->company_name;
+        $client->tin = $request->tin;
+        $client->rdo_code = $request->rdo;
+        $client->business_type_id = $request->business_type;
+        $client->phone = $request->contact;
+        $client->address = $request->address;
+        $client->vn = $request->vn;
+        $client->socials = json_encode($request->socials);
+        $client->report_status_id = 1;
+        $client->duration = '1';
+        $client->save();
+    
+        // Log the client in
+        Auth::guard('client')->login($client);
+    
+        // Redirect to the client dashboard
+        return redirect()->route('client.dashboard');
     }
 
     public function logout(Request $request)

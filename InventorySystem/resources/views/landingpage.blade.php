@@ -98,7 +98,7 @@
       
       <div class="w-full md:w-1/2 bg-white rounded-md shadow-md p-4 text-center">
         <div class="gb-black text-white p-4 rounded-md w-3/4 mx-auto mt-0">
-            <h2 class="text-xl font-bold mb-4">Standard</h2>
+            <h2 class="text-xl font-bold mb-4">Premium</h2>
             <p class="mb-4">Available on selected Regions only</p>
             <p class="text-2xl font-bold mb-4">$29.99</p>
         </div>

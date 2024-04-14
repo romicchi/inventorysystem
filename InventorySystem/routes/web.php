@@ -7,6 +7,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ClientLoginController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\DocumentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,17 +25,20 @@ Route::get('/', function () {
     return view('landingpage');
 })->name('landingpage');
 
+// register
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+// login
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-
 // --------- ADMIN ---------- //
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/company/{id}', [AdminController::class, 'show']);
 
     Route::get('/admin/clients', function () {
         return view('admin.clients');
@@ -48,13 +53,9 @@ Route::middleware(['admin'])->group(function () {
 Route::middleware(['client'])->group(function () {
     Route::get('/dashboard', [ClientController::class, 'index'])->name('client.dashboard');
 
-    Route::get('/inventory', function () {
-        return view('client.inventory');
-    });
+    Route::get('/inventory', [InventoryController::class, 'showInventory'])->name('client.inventory');
 
-    Route::get('/document', function () {
-        return view('client.document');
-    });
+    Route::get('/document', [DocumentController::class, 'showDocument'])->name('client.document');
 
     Route::get('/inventory/new', [StoreController::class, 'create'])->name('inventory.create');
     Route::post('/inventory/new', [StoreController::class, 'store'])->name('inventory.store');

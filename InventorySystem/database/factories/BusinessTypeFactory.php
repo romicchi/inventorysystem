@@ -1,0 +1,34 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\BusinessType;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class BusinessTypeFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = BusinessType::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        $types = [
+            'Sole Proprietorship',
+            'Partnership',
+            'Corporation',
+        ];
+    
+        return [
+            'type' => $this->faker->randomElement($types),
+        ];
+    }
+}

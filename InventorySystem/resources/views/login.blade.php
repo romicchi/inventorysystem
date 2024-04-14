@@ -20,10 +20,16 @@
                     <div>
                         <label for="email" class="block text-sm sm:text-base lg:text-lg font-medium gb-white-text">Email</label>
                         <input type="email" name="email" id="email" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Username">
+                        @error('email')
+                            <small class="text-red-500 text-xs italic">* Email is required.</small>
+                        @enderror
                     </div>
                     <div>
                         <label for="password" class="block text-sm sm:text-base lg:text-lg font-medium gb-white-text">Password</label>
                         <input type="password" name="password" id="password" class="p-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Password">
+                        @error('password')
+                            <small class="text-red-500 text-xs italic">* Password is required.</small>
+                        @enderror
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">

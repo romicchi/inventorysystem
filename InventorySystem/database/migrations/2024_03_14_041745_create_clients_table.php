@@ -19,14 +19,17 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('address');
-            $table->string('tin');
+            $table->string('tin')->nullable();
             $table->string('vn');
             $table->string('rdo_code');
+            $table->unsignedBigInteger('business_type_id');
+            $table->json('socials')->nullable();            
             $table->unsignedBigInteger('report_status_id');
             $table->string('duration');
             $table->timestamps();
 
             $table->foreign('report_status_id')->references('id')->on('report_statuses');
+            $table->foreign('business_type_id')->references('id')->on('business_types');
         });
     }
 

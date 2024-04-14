@@ -23,7 +23,7 @@
             <div class="flex justify-end">
                 <button onclick="location.href='{{ route('inventory.create') }}'" class="px-4 py-2 gb-lblue text-white rounded">Add Inventory</button>
             </div>
-            <livewire:inventory-table/>
+            <livewire:inventory-table :client_id="$client->id"/>
         </div>
     </div>
 

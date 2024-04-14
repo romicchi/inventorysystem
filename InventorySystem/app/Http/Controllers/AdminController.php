@@ -12,4 +12,11 @@ class AdminController extends Controller
         $totalClients = Client::count();
         return view('admin.dashboard', ['totalClients' => $totalClients]);
     }
+
+    public function show($id)
+    {
+        $client = Client::find($id);
+        
+        return view('admin.company', ['client' => $client]);
+    }
 }

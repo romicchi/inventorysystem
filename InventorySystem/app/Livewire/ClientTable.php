@@ -58,7 +58,9 @@ final class ClientTable extends PowerGridComponent
     public function fields(): PowerGridFields
     {
         return PowerGrid::fields()
-            ->add('company')
+            ->add('company', function ($model) {
+                return "<a href='/company/{$model->id}' class='hover-cursor'>{$model->company}</a>";
+            })
             ->add('contact_name')
             ->add('phone')
             ->add('email')

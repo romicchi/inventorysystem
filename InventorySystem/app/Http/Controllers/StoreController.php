@@ -61,6 +61,7 @@ class StoreController extends Controller
                 'doc_name', 'document_type_id', 'additional_notes'
             ]), [
                 'name' => $request->doc_name,
+                'client_id' => Auth::guard('client')->user()->id,
                 'product_id' => $inventory->id,
                 'date_submitted' => now(),
             ]));

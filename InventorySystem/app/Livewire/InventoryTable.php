@@ -21,6 +21,13 @@ final class InventoryTable extends PowerGridComponent
 {
     use WithExport;
 
+    public $client_id;
+
+    public function setClient($client_id)
+    {
+        $this->client_id = $client_id;
+    }
+
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -29,7 +36,9 @@ final class InventoryTable extends PowerGridComponent
             Exportable::make('export')
                 ->striped()
                 ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
-            Header::make()->showSearchInput(),
+            Header::make()
+            ->showSearchInput()
+            ->showToggleColumns(),
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
@@ -38,8 +47,10 @@ final class InventoryTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Inventory::query()->join('inventory_type', 'inventories.inventory_type_id', '=', 'inventory_type.id')
-            ->select('inventories.*', 'inventory_type.type as inventory_type');
+        return Inventory::query()
+        ->where('client_id', $this->client_id)
+        ->join('inventory_type', 'inventories.inventory_type_id', '=', 'inventory_type.id')
+        ->select('inventories.*', 'inventory_type.type as inventory_type');
     }
 
     public function relationSearch(): array
@@ -51,6 +62,8 @@ final class InventoryTable extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('name')
+            ->add('client_id')
+            ->add('inventory_type')
             ->add('inventory_type_id')
             ->add('description')
             ->add('unit')
@@ -69,6 +82,8 @@ final class InventoryTable extends PowerGridComponent
             Column::make('Name', 'name')
                 ->sortable()
                 ->searchable(),
+
+                Column::make('Client ID', 'client_id'),
 
             Column::make('Inventory Type', 'inventory_type'),
             Column::make('Description', 'description')

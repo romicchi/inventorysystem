@@ -16,6 +16,7 @@ class Document extends Model
      */
     protected $fillable = [
         'name',
+        'client_id',
         'product_id',
         'document_type_id',
         'additional_notes',

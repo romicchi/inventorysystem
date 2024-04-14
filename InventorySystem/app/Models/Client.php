@@ -25,6 +25,8 @@ class Client extends Authenticatable
         'tin',
         'vn',
         'rdo_code',
+        'business_type_id',
+        'socials',
         'report_status_id',
         'duration',
     ];

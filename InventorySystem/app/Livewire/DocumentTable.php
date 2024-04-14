@@ -21,6 +21,13 @@ final class DocumentTable extends PowerGridComponent
 {
     use WithExport;
 
+    public $client_id;
+
+    public function setClient($client_id)
+    {
+        $this->client_id = $client_id;
+    }
+
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -29,7 +36,9 @@ final class DocumentTable extends PowerGridComponent
             Exportable::make('export')
                 ->striped()
                 ->type(Exportable::TYPE_XLS, Exportable::TYPE_CSV),
-            Header::make()->showSearchInput(),
+            Header::make()
+            ->showSearchInput()
+            ->showToggleColumns(),
             Footer::make()
                 ->showPerPage()
                 ->showRecordCount(),
@@ -39,6 +48,7 @@ final class DocumentTable extends PowerGridComponent
     public function datasource(): Builder
     {
         return Document::query()
+            ->where('documents.client_id', $this->client_id)
             ->join('document_types', 'documents.document_type_id', '=', 'document_types.id')
             ->join('inventories', 'documents.product_id', '=', 'inventories.id')
             ->select(['documents.*', 'document_types.type as document_type', 'inventories.name as product_name'])
