@@ -17,7 +17,7 @@
       <div class="flex items-center">
           <div class="flex items-center ms-3">
             <div class="mx-2">
-                <a href="#" class="text-sm font-medium gb-white-text dark:text-gray-300 hover:text-gray-700 dark:hover:text-white">Profile</a>
+                <a href="{{ route('client.profile') }}" class="text-sm font-medium gb-white-text dark:text-gray-300 hover:text-gray-700 dark:hover:text-white">Profile</a>
             </div>
             <!-- notification bell & Logout -->
             <div class="mx-2">

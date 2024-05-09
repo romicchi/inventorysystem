@@ -11,10 +11,25 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link href="{{ asset('css/landingpage.css') }}" rel="stylesheet">
   <link href="{{ asset('css/global.css') }}" rel="stylesheet">
-</head> 
+</head>
+<style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    #content-wrapper {
+      flex: 1;
+    }
+
+    #footer-container {
+      margin-top: auto;
+    }
+</style>
 <body>    
     <!-- Jumbotron -->
-    <section class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply" style="background-image: url('{{ asset('assets/img/jumbotron.png') }}');" loading="lazy">
+    <section class="bg-center bg-no-repeat bg-gray-700 bg-blend-multiply" style="background-image: url('{{ asset('assets/img/jumbotron.png') }}'); background-size: cover;" loading="lazy" id="content-wrapper">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
         <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Business Support & Engineering Solution</h1>
         <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">We provide solutions to the problem encountered by small and medium enterprises through our services.</p>
@@ -24,7 +39,7 @@
             </a>  
         </div>
     </div>
-</section>
+  </section>
 
     <!-- About Us -->
     <section class="bg-gray-100 py-6 px-4 md:py-20 md:px-10" id="aboutus-container">

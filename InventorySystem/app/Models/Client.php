@@ -48,4 +48,19 @@ class Client extends Authenticatable
     {
         return $this->belongsTo(ReportStatus::class);
     }
+
+    public function businessType()
+    {
+        return $this->belongsTo(BusinessType::class);
+    }
+
+    public function getSocialsAttribute($value)
+    {
+        return rtrim(ltrim($value, '"'), '"'); // Remove leading and trailing quotes
+    }
+
+    public function setSocialsAttribute($value)
+    {
+        $this->attributes['socials'] = rtrim(ltrim($value, '"'), '"'); // Remove leading and trailing quotes
+    }
 }

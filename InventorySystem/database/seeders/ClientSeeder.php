@@ -26,6 +26,7 @@ class ClientSeeder extends Seeder
             'vn' => '123456789',
             'rdo_code' => '123456',
             'business_type_id' => 1,
+            'socials' => '["facebook", "twitter"]',
             'report_status_id' => 1,
             'duration' => '1 year',
         ]);

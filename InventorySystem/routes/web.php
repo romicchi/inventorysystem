@@ -60,6 +60,10 @@ Route::middleware(['client'])->group(function () {
     Route::get('/inventory/new', [StoreController::class, 'create'])->name('inventory.create');
     Route::post('/inventory/new', [StoreController::class, 'store'])->name('inventory.store');
 
+    // profile
+    Route::get('/profile', [ClientController::class, 'showProfile'])->name('client.profile');
+
+    Route::put('/client/{id}', [ClientController::class, 'update'])->name('client.update');
 
     Route::get('/logs', function () {
         return view('client.activity_logs');
